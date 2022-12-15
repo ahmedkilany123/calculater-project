@@ -1,0 +1,111 @@
+<html>
+<head>
+    <style>
+        *, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background: linear-gradient(to right, #00fff7, #ffa200)
+}
+
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255,255,255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255,255,255, .90);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background: rgba(0,0,0, .75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .screen {
+    color: rgba(255,255,255, .75);
+    font-size: 1.5rem;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.output .hi {
+    color: white;
+    font-size: 2.5rem;
+}
+
+    </style>
+</head>
+    <body>
+<div class="calculator-grid">
+    <div class="output">
+        <input type="text" class="screen">
+    </div>
+    
+    <button type="button" data-all-clear class="span-two">all clear</button>
+    <button type="button" data-delete>delete</button>
+    <button type="button" data-num="/" class="btn btn-num">÷</button>
+    <button type="button" data-num="1" class="btn btn-num">1</button>
+    <button type="button" data-num="2" class="btn btn-num">2</button>
+    <button type="button" data-num="3" class="btn btn-num">3</button>
+    <button type="button" data-num="*" class="btn btn-num">*</button>
+    <button type="button" data-num="4" class="btn btn-num">4</button>
+    <button type="button" data-num="5" class="btn btn-num">5</button>
+    <button type="button" data-num="6" class="btn btn-num">6</button>
+    <button type="button" data-num="+" class="btn btn-num">+</button>
+    <button type="button" data-num="7" class="btn btn-num">7</button>
+    <button type="button" data-num="8" class="btn btn-num">8</button>
+    <button type="button" data-num="9" class="btn btn-num">9</button>
+    <button type="button" data-num="9" class="btn btn-num">-</button>
+    <button type="button" data-decimal class>.</button>
+    <button type="button" data-num="0">0</button>
+    <button type="button" data-equals class="span-two">=</button>
+</div>
+<script>
+
+(function() {
+        let screen = document.querySelector('data-previousOperand');
+        let buttons = document.querySelectorAll('.btn');
+        let clear = document.querySelector('.btn-clear');
+        let equal = document.querySelector('.btn-equal');
+
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                let value = e.target.dataset.num;
+                screen.value += value;
+        })
+    })
+    })();
+
+</script>
+    </body>
+</html>

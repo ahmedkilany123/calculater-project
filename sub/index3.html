@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ccc;
+  font-family: "Lemonada", cursive;
+}
+
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  direction: rtl;
+  padding: 30px;
+  font-size: 20px;
+}
+.container label {
+  display: block;
+  font-size: 16px;
+/*   text-decoration: underline; */
+}
+
+.container label::after {
+  content: "  * ";
+  color: red;
+/*   text-decoration: underline; */
+}
+.container [type="number"] {
+  width: 70%;
+  margin: 10px 0;
+  padding: 3px;
+  font-size: 14px;
+  font-family: "Lemonada", cursive;
+}
+/* button  */
+.container .hesap button {
+  color: white;
+  background: rgb(87, 184, 214);
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 14px;
+  font-family: "Lemonada", cursive;border:0;cursor:pointer
+}
+/* خط الافقي */
+hr {
+  margin: 15px 0;
+  opacity: 0.5;
+}
+/* result */
+.result {
+  width: 100%;
+  background-color: #ccc;
+  text-align: right;
+  margin: auto;
+  color: rgb(3, 3, 175);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 24px;
+}
+.final-result {
+  width: 90%;
+  padding-right:20px;
+  margin: 10px auto;
+  border: 1px solid rgba(0, 0, 0, 0.472);
+  border-radius: 10px;
+  color: black;
+  font-size: 18px;
+  background-color: rgba(22, 36, 85, 0.301);
+  line-height: 3;
+}
+
+.wrongResult {
+  color: darkred;
+  text-decoration: underline;
+}
+.resultNumber {
+  color: rgb(3, 3, 175);
+  font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hesap alomr"> حساب العمر
+            <form><label>اكتب عمرك بالسنوات : </label>
+                <input id="ageNumber" type="number">
+            </form>
+            <button type="submit" onclick="ageCalc(document.getElementById('ageNumber').value)" id="calcAge"> احسب
+                عمرك</button>
+        </div>
+
+        <hr>
+
+        <div class="result">
+            النتيجة :
+            <div class="final-result" id="final-result">
+                اكتب عمرك لتحصل على النتيجة
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+function ageCalc(age) {
+    if (age <= 0) {
+        return document.getElementById("final-result").innerHTML = `<span class='wrongResult'> اكتب عمرك بشكل صحيح</span>`
+    }
+    else {
+        var yearAge = age,
+            weekAge = age * 365 / 7,
+            daysAge = age * 365,
+            hoursAge = age * 365 * 24,
+            minutesAge = age * 365 * 24 * 60,
+            secondsAge = age * 365 * 24 * 60 * 60
+        return document.getElementById("final-result").innerHTML =
+            `عمرك بالسنوات هو : <span class='resultNumber'>${yearAge}</span> سنوات  </br>` +
+            `عمرك بالأسابيع هو : <span class='resultNumber'>${weekAge}</span> اسابيع  </br>`+
+            `عمرك بالأيام هو : <span class='resultNumber'>${daysAge}</span> أيام  </br>`+
+            `عمرك بالساعات هو : <span class='resultNumber'>${hoursAge}</span> ساعات  </br>`+
+            `عمرك بالدقائق هو : <span class='resultNumber'>${minutesAge}</span> دقائق  </br>`+
+            `عمرك بالثواني هو : <span class='resultNumber'>${secondsAge}</span> ثواني  </br>`
+
+    }
+}
+
+    </script>
+
+</body>
+</html>

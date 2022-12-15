@@ -1,0 +1,35 @@
+<html>  
+<body>  
+<script>  
+  
+
+const num1 = parseFloat(prompt ('أدخل الرقم الأول: '));  
+const opr = prompt('اختر المعاملة الحسابية ( مثل +, -, * or / ): ');  
+const num2 = parseFloat(prompt ('اختر الرقم الثاني: '));  
+  
+let result;  
+  
+if (opr == '+') {   
+    result = num1 + num2;  
+}  
+else if (opr == '-') { 
+    result = num1 - num2;  
+}  
+else if (opr == '*') { 
+    result = num1 * num2;  
+}  
+else if (opr == "/") {
+    result = num1 / num2;
+}
+else if (opr == "%"){  
+    result = num1 % num2;   
+}  
+else {
+    result = "برجاء ادخال قيم صالحة";
+}
+  
+ 
+window.alert( result);  
+</script>  
+<body>  
+</html>  
