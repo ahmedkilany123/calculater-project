@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc</title>
+
+    <style>
+
+        body{
+            height: 100vh;
+            background-color: #ff9966;
+            text-align: center;
+        }
+
+        .calculater{
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        input, button {
+            border: none;
+            outline: none;
+            height: 80px;
+        }
+
+        input {
+            width:321px;
+            font-size: 30px;
+            color:#eeeeee ;
+            background-color:#333a4d ;
+            margin-bottom: -1px;
+        }
+        button {
+            width: 80px;
+            margin: -1px;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333a4d;
+            background-color:#eeeeee ;
+        }
+        button:active {
+            background-color: #333a4d;
+            color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculater">
+            <input type="text" id="input"/>
+
+            <table>
+                <tr>
+                    <td> <button>1</button> </td>
+                    <td> <button>2</button> </td>
+                    <td> <button>3</button> </td>
+                    <td> <button>c</button> </td>
+                </tr>
+                <tr>
+                    <td> <button>4</button> </td>
+                    <td> <button>5</button> </td>
+                    <td> <button>6</button> </td>
+                    <td> <button>x</button> </td>
+                </tr>
+                <tr>
+                    <td> <button>7</button> </td>
+                    <td> <button>8</button> </td>
+                    <td> <button>9</button> </td>
+                    <td> <button>-</button> </td>
+                </tr>
+                <tr>
+                    <td> <button>0</button> </td>
+                    <td> <button>.</button> </td>
+                    <td> <button>/</button> </td>
+                    <td> <button>=</button> </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <script>
+
+        let input = document.getElementById("input");
+        let buttons = document.querySelectorAll("button");
+        let inputValue = "";
+
+        for (item of buttons){
+            item.addEventListener("click" , (e) => {
+                buttonText = e.target.innerText;
+                console.log("button text is " , buttonText);
+
+                if(buttonText == "x"){
+                    buttonText = "*";
+                    inputValue += buttonText;
+                    input.value = inputValue;
+                }
+                else if (buttonText == "c") {
+                    inputValue="";
+                    input.value = inputValue;
+                }
+                else if (buttonText == "=") {
+                    input.value = eval(inputValue);
+                }
+               
+                else {
+                    inputValue += buttonText;
+                    input.value= inputValue
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>

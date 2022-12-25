@@ -1,35 +1,39 @@
-<html>  
-<body>  
-<script>  
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc</title>
+</head>
+<body>
+    <script>
+        const num1 =parseFloat( prompt('أدخل الرقم الأول'));
+        const opr = prompt('أدخل المعاملة الحسابية مثل (*،-،/،+)');
+        const num2 =parseFloat( prompt('أدخل الرقم الثاني'));
+        
+        let result;
 
-const num1 = parseFloat(prompt ('أدخل الرقم الأول: '));  
-const opr = prompt('اختر المعاملة الحسابية ( مثل +, -, * or / ): ');  
-const num2 = parseFloat(prompt ('اختر الرقم الثاني: '));  
-  
-let result;  
-  
-if (opr == '+') {   
-    result = num1 + num2;  
-}  
-else if (opr == '-') { 
-    result = num1 - num2;  
-}  
-else if (opr == '*') { 
-    result = num1 * num2;  
-}  
-else if (opr == "/") {
-    result = num1 / num2;
-}
-else if (opr == "%"){  
-    result = num1 % num2;   
-}  
-else {
-    result = "برجاء ادخال قيم صالحة";
-}
-  
- 
-window.alert( result);  
-</script>  
-<body>  
-</html>  
+        if(opr=='+'){
+            result=num1+num2;
+        }
+        if(opr=='-'){
+            result=num1-num2;
+        }
+        if(opr=='*'){
+            result=num1*num2;
+        }
+        if(opr=='/'){
+            result=num1/num2;
+        }
+        if(opr=='%'){
+            result=num1%num2;
+        }
+
+        else{
+            result="wrong";
+        }
+        alert(result);
+    </script>
+</body>
+</html>
